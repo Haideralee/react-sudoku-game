@@ -1,0 +1,143 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  position: relative;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  background-color: lighten($primary-color, 50);
+}
+
+.sudoku-container {
+  margin: auto;
+  width: 800px;
+  min-height: 600px;
+  border-radius: 5px;
+  border: 2px dashed rgba($primary-color, 0.5);
+
+  .heading-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px dashed rgba($primary-color, 0.5);
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .body-container {
+    margin: 20px 10px;
+    padding: 20px;
+    width: calc(100% - 64px);
+    border: 2px solid rgba($primary-color, 1);
+
+    .btn {
+      padding: 0 10px;
+      height: 30px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-family: $base-font-family;
+      font-size: 16px;
+      line-height: 1.5;
+
+      &-refresh {
+        background-color: orange;
+        color: white;
+      }
+      &-reset {
+        background-color: royalblue;
+        color: white;
+      }
+      &-solve {
+        background-color: darkgreen;
+        color: white;
+      }
+    }
+
+    .level-and-buttons-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .levels {
+        display: block;
+        label {
+          font-family: $base-font-family;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+
+        select {
+          padding: 0 5px;
+          height: 30px;
+          font-family: $base-font-family;
+          font-size: 16px;
+          line-height: 1.5;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .rows {
+      display: flex;
+      flex-wrap: wrap;
+      border-left: 1px solid $secondary-color;
+
+      .columns {
+        width: 11.11%;
+        height: 80px;
+        font-size: 40px;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: $base-font-family;
+        border: 0.5px solid $primary-color;
+        background-color: rgba($secondary-color, 0.05);
+
+        &:nth-child(3n) {
+          border-right: 1.5px solid $secondary-color;
+        }
+
+        &.invalid {
+          color: darken($error-color, 0);
+          background-color: rgba($error-color, 0.5);
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        &[type="number"] {
+          -moz-appearance: textfield;
+        }
+
+        &:hover,
+        &:focus,
+        &:visited,
+        &:focus-visible,
+        &:focus-within {
+          box-shadow: none;
+          outline: none;
+        }
+      }
+
+      &:nth-child(1) {
+        border-top: 1px solid $secondary-color;
+      }
+
+      &:nth-child(3n) {
+        border-bottom: 1px solid $secondary-color;
+        .columns {
+          border-bottom: 0.5px solid $secondary-color;
+        }
+      }
+    }
+  }
+}
